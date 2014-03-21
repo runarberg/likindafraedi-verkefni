@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Rúnar Berg Baugsson Sigríðarson">
+  <meta name="author" content="Tómas Ari Gíslason">
+  <title>Inngangur að líkindafræði</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="buttondown.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<h1 class="title">Inngangur að líkindafræði</h1>
+<h2 class="author">Rúnar Berg Baugsson Sigríðarson</h2>
+<h2 class="author">Tómas Ari Gíslason</h2>
+<h3 class="date">20. mars 2014</h3>
+</header>
+<section class="level1" id="dæmi-17">
+<h1>Dæmi 17</h1>
+<p>Stöng sem er metri að lengd er skipt í tvennt af handahófi. Sem sagt brotapunkturinn \(X\) hefur jafna dreifingu á \([0, 1]\). er vinstri hlutanum aftur skipt af handahófi með nýjum brotapunkti \(Y\).</p>
+<section class="level2" id="ákvörðum-skilyrta-þéttleika-y-gefið-x-x">
+<h2>Ákvörðum skilyrta þéttleika \(Y\) gefið \(X = x\)</h2>
+<p>Þegar stöngin hefur verið brotin í \(x\) hefur \(Y\) jafna dreifingu á \([0,x]\) sem gefur okkur samþéttifallið \[
+  f(y,x) = \frac{1}{x-0} = \frac{1}{x}
+\] ef \(0 \leq y \leq x\) en \(0\) annars.</p>
+<p>Við höfum að skilyrtur þéttleiki \(Y\) gefið \(X = x\) er \[
+  f_{Y \mid X=x}(y) = \frac{f(y,x)}{f_X(x)}
+\] þar sem \(f_X(x) = \frac{1}{1-0} = 1\) ef \(0 \leq x \leq 1\), en \(0\) annars. Og við höfum þá svarið \[
+  f_{Y \mid X=x}(y) = \frac{1/x}{1} = \frac{1}{x},
+  \quad 0 \leq y \leq x \leq 1
+\] en \(0\) annars.</p>
+</section>
+<section class="level2" id="ákvörðum-skilyrt-væntigildi-y-gefið-x-x-þ.e.-ey-mid-xx">
+<h2>Ákvörðum skilyrt væntigildi \(Y\) gefið \(X = x\), þ.e. \(E[Y \mid X=x]\)</h2>
+<p>Við reiknum \[
+\begin{align}
+  E[Y \mid X=x] &amp;= \int_{-\infty}^{\infty} yf_{Y \mid X=x}(y)dy \\
+                &amp;= \int_0^x y\frac{1}{x}dy \\
+                &amp;= \left[\frac{1}{2x}y^2\right]_{y=0}^x \\
+                &amp;= \frac{x^2}{2x} = \frac{x}{2}.
+\end{align}
+\]</p>
+</section>
+<section class="level2" id="ákvörðum-væntigildi-y">
+<h2>Ákvörðum væntigildi \(Y\)</h2>
+<p>Væntigildi \(Y\) er háð \(X\) svo skrifum \[
+  E[Y \mid X] = g(X)
+\] þar sem \[
+  g(X = x) = E[Y \mid X=x] = \frac{x}{2}
+\]</p>
+</section>
+</section>
+<section class="level1" id="verkefni-6-fleiri-skrýtnir-teningar">
+<h1>Verkefni 6: Fleiri skrýtnir teningar</h1>
+<p>Í þessu dæmi ætlum við að skoða venjulega sex hliða teninga ásamt sex hliða teningunum \[
+\begin{align}
+  η &amp;: 1, 2, 2, 3, 3, 4 \\
+  θ &amp;: 1, 3, 4, 5, 6, 8.
+\end{align}
+\]</p>
+<p>Köllum slembistærðina sem er útkoma úr teningakasti venjulegs sex hliða tenings \(D\) og köllum slembistærðirnar sem eru útkomur úr \(η\) og \(θ\) einfaldlega \(D_η\) og \(D_θ\). Við höfum sérstakan áhuga á summu útkoma úr tveimur köstum venjulegra sex hliða teninga, köllum þær stærðir \(D_1\) og \(D_2\) og summan er þá \(X = D_1 + D_2\). Látum að sama skapi \(Y = D_η + D_θ\). Okkur grunar að slembistærðirnar \(X\) og \(Y\) séu keimlíkar! Leysum fyrstu tvo liðina og reynum við (c)-lið.</p>
+<section class="level2" id="reiknum-væntigildi-og-útkomurúm-x-og-y">
+<h2>Reiknum væntigildi og útkomurúm \(X\) og \(Y\)</h2>
+<p>Byrjum á að skoða útkomurúmin með því að nota R</p>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;- <span class="dv">1</span>:<span class="dv">6</span>
+η &lt;- <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)
+θ &lt;- <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>)
+
+rúm_X &lt;- <span class="kw">sort</span>(<span class="kw">outer</span>(n, n, <span class="st">&quot;+&quot;</span>))
+rúm_Y &lt;- <span class="kw">sort</span>(<span class="kw">outer</span>(η, θ, <span class="st">&quot;+&quot;</span>))
+
+<span class="kw">show</span>(rúm_X)</code></pre>
+<pre><code>##  [1]  2  3  3  4  4  4  5  5  5  5  6  6  6  6  6  7  7  7  7  7  7  8  8
+## [24]  8  8  8  9  9  9  9 10 10 10 11 11 12</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">show</span>(rúm_Y)</code></pre>
+<pre><code>##  [1]  2  3  3  4  4  4  5  5  5  5  6  6  6  6  6  7  7  7  7  7  7  8  8
+## [24]  8  8  8  9  9  9  9 10 10 10 11 11 12</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">show</span>(<span class="kw">all</span>(rúm_X == rúm_Y))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Svo útkomurúm \(X\) og \(Y\) eru þau sömu.</p>
+<p>Reiknum nú væntigildin. \[
+\begin{align}
+  E[D] &amp;= \sum_{i \in D} iP(D=i) \\
+       &amp;= \frac{1+2+3+4+5+6}{6} = \frac{21}{6} = \frac{7}{2}.
+\end{align}
+\] Nýtum okkur að \(X = D_1 + D_2 = 2D\), svo \[
+  E[X] = E[2D] = 2E[D] = 7.
+\]</p>
+<p>Reiknum svo \[
+\begin{align}
+  E[D_η] &amp;= \sum_{i \in D_η} iP(D_η=i) \\
+       &amp;= \frac{1+2+2+3+3+4}{6} = \frac{15}{6} = \frac{5}{2}.
+\end{align}
+\] og \[
+\begin{align}
+  E[D_θ] &amp;= \sum_{i \in D_θ} iP(D_θ=i) \\
+       &amp;= \frac{1+3+4+5+6+8}{6} = \frac{27}{6} = \frac{9}{2}.
+\end{align}
+\] og því \[
+  E[Y] = E[D_η + D_θ] = E[D_η] + E[D_θ] = \frac{5}{2} + \frac{9}{2} = 7.
+\]</p>
+<p>Svo væntigildi \(X\) og \(Y\) eru einnig þau sömu.</p>
+</section>
+<section class="level2" id="sýnum-að-dreifing-y-sé-sú-sama-og-dreifing-x">
+<h2>Sýnum að dreifing \(Y\) sé sú sama og dreifing \(X\)</h2>
+<p>Byrjum á að reikna dreifingu \(D\). \[
+  E[D^2] = \frac{1+4+9+16+25+36}{6} = \frac{91}{6}
+\] \[
+  \mathrm{var}[D] = E[D^2] - \big(E[D]\big)^2
+                  = \frac{91}{6} - \frac{49}{4}
+                  = \frac{35}{12}.
+\] Og þar sem \(D_1\) og \(D_2\) eru óháðar getum við reiknað \[
+    \mathrm{var}[X] = \mathrm{var}[D_1] + \mathrm{var}[D_2]
+                    = \frac{35}{6}
+\] Núna leikum við sama leikinn fyrir \(D_η\) og \(D_θ\) \[
+  E[D_η^2] = \frac{1+4+4+9+9+16}{6} = \frac{43}{6}
+\] \[
+  \mathrm{var}[D_η] = E[D_η^2] - \big(E[D_η]\big)^2
+                    = \frac{43}{6} - \frac{25}{4}
+                    = \frac{11}{12}.
+\] \[
+  E[D_θ^2] = \frac{1+9+16+25+36+64}{6} = \frac{151}{6}
+\] \[
+  \mathrm{var}[D_θ] = E[D_θ^2] - \big(E[D_θ]\big)^2
+                    = \frac{151}{6} - \frac{81}{4}
+                    = \frac{59}{12}.
+\] \(D_η\) og \(D_θ\) eru óháðar svo \[
+  \mathrm{var}[Y] = \mathrm{var}[D_η] + \mathrm{var}[D_θ]
+                  = \frac{11}{12} + \frac{59}{12} = \frac{35}{6}
+                  = \mathrm{var}[X]
+\]</p>
+<p>Og ef við viljum nota R til að komast að sömu niðurstöðum þá</p>
+<pre class="sourceCode r"><code class="sourceCode r">B &lt;- <span class="dv">10000</span>  <span class="co">#ítranir</span>
+köst_X &lt;- <span class="kw">sample</span>(n, B, <span class="dt">replace =</span> <span class="ot">TRUE</span>) + <span class="kw">sample</span>(n, B, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+köst_Y &lt;- <span class="kw">sample</span>(η, B, <span class="dt">replace =</span> <span class="ot">TRUE</span>) + <span class="kw">sample</span>(θ, B, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+
+<span class="kw">show</span>(<span class="kw">summary</span>(köst_X))</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    2.00    5.00    7.00    6.98    9.00   12.00</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">show</span>(<span class="kw">summary</span>(köst_Y))</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    2.00    5.00    7.00    7.03    9.00   12.00</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">show</span>(<span class="kw">var</span>(köst_X))</code></pre>
+<pre><code>## [1] 5.805</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">show</span>(<span class="kw">var</span>(köst_Y))</code></pre>
+<pre><code>## [1] 5.831</code></pre>
+<p>Og berum þær svo saman myndrænt í lokin</p>
+<pre class="sourceCode r"><code class="sourceCode r">hist_X &lt;- <span class="kw">hist</span>(köst_X, <span class="dt">breaks =</span> <span class="dv">1</span>:<span class="dv">12</span>, <span class="dt">plot =</span> <span class="ot">FALSE</span>)
+hist_Y &lt;- <span class="kw">hist</span>(köst_Y, <span class="dt">breaks =</span> <span class="dv">1</span>:<span class="dv">12</span>, <span class="dt">plot =</span> <span class="ot">FALSE</span>)
+colors = <span class="kw">c</span>(<span class="kw">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.24</span>), <span class="kw">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.3</span>))
+<span class="kw">plot</span>(hist_X, <span class="dt">col =</span> colors[<span class="dv">1</span>], <span class="dt">main =</span> <span class="kw">paste</span>(B, <span class="st">&quot;Teningaköst&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>), <span class="dt">ylab =</span> <span class="st">&quot;Fjöldi skipta sem summa kemur upp&quot;</span>, 
+    <span class="dt">xlab =</span> <span class="st">&quot;Punktasumma&quot;</span>)
+<span class="kw">plot</span>(hist_Y, <span class="dt">col =</span> colors[<span class="dv">2</span>], <span class="dt">add =</span> <span class="ot">TRUE</span>)
+<span class="kw">box</span>()
+<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;venjulegir&quot;</span>, <span class="st">&quot;skrítnir&quot;</span>), <span class="dt">col =</span> colors, <span class="dt">pch =</span> <span class="dv">15</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</code></pre>
+<figure>
+<img src="figure/plot.svg" alt="Tíðnirit teningaparanna tveggja eftir 10000 ítranir"><figcaption>Tíðnirit teningaparanna tveggja eftir 10000 ítranir</figcaption>
+</figure>
+</section>
+</section>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
