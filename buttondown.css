@@ -215,11 +215,11 @@ background-color: #fdf7ee;
 /* BEGIN word wrap */
 /* Need all the following to word wrap instead of scroll box */
 /* This will override the overflow:auto if present */
-white-space: pre-wrap; /* css-3 */
-white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
-white-space: -pre-wrap; /* Opera 4-6 */
-white-space: -o-pre-wrap; /* Opera 7 */
-word-wrap: break-word; /* Internet Explorer 5.5+ */
+/* white-space: pre-wrap; /\* css-3 *\/ */
+/* white-space: -moz-pre-wrap !important; /\* Mozilla, since 1999 *\/ */
+/* white-space: -pre-wrap; /\* Opera 4-6 *\/ */
+/* white-space: -o-pre-wrap; /\* Opera 7 *\/ */
+/* word-wrap: break-word; /\* Internet Explorer 5.5+ *\/ */
 /* END word wrap */
 }
  
@@ -431,4 +431,10 @@ imports this one and adds a class just to do this.
 {
 display:none;
 }
+}
+
+@media screen {
+    body {
+        font-size: 24px;
+    }
 }
